@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:37:40 by mehdi             #+#    #+#             */
-/*   Updated: 2023/12/09 15:19:38 by ehafiane         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:01:31 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strchr(char *s, int c)
 		s++;
 	}
 	if (!((char)c))
-		return ((char *)s);
+		return (s);
 	return (NULL);
 }
 
@@ -47,14 +47,14 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	join = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!join)
-		return (0);
+		return (NULL);
 	while (s1 && s1[j])
 	{
 		join[i++] = s1[j];
 		j++;
 	}
 	j = 0;
-	while (s2[j])
+	while (s2 && s2[j])
 	{
 		join[i++] = s2[j];
 		j++;
