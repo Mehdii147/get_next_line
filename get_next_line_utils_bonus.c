@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:50:17 by ehafiane          #+#    #+#             */
-/*   Updated: 2023/12/09 15:35:36 by ehafiane         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:00:05 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	j = 0;
-	while (s2[j])
+	while (s2 && s2[j])
 	{
 		join[i++] = s2[j];
 		j++;
@@ -74,15 +74,14 @@ char	*ft_get_line(char *stock)
 		return (NULL);
 	while (stock[i] && stock[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (stock[i] == '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (stock[i] && stock[i] != '\n')
-	{
+	i = -1;
+	while (stock[++i] && stock[i] != '\n')
 		str[i] = stock[i];
-		i++;
-	}
 	if (stock[i] == '\n')
 	{
 		str[i] = stock[i];
