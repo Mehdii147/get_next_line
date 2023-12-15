@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:34:38 by mehdi             #+#    #+#             */
-/*   Updated: 2023/12/14 20:52:48 by ehafiane         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:53:20 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*stock;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
 	stock = ft_read_stock(fd, stock);
 	if (!stock)
